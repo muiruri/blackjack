@@ -79,7 +79,7 @@ export const getHighest10 = (card) => {
     s = 4, H = 3, C = 2, D = 1
 */
 export const getSuiteValue = (card) => {
-  const suite = card.chatAt(card.length - 1);
+  const suite = card.charAt(card.length - 1);
   switch(suite) {
     case 'S':
       return 4
@@ -126,8 +126,8 @@ export const getWinner = (deckA, deckB) => {
     if(tempDeckA.length === 0 || tempDeckB.length == 0) {
       check = false;
     } else {
-      const highestA = getSingleCardHighestValue(tempDeckA)
-      const highestB = getSingleCardHighestValue(tempDeckB)
+      highestA = getSingleCardHighestValue(tempDeckA)
+      highestB = getSingleCardHighestValue(tempDeckB)
       const valueA = getCardValue(highestA);
       const valueB = getCardValue(highestB);
       if(valueA != valueB) {
