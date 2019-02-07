@@ -1,0 +1,104 @@
+# Copied from https://github.com/github/gitignore
+
+### IntelliJ Idea ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+### Maven ###
+target/
+#############
+
+### Eclipse ###
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+###############
+
+### Java ###
+*.class
+
+# Java Package Files #
+*.jar
+*.war
+*.ear
+############
+
+### Netbeans ###
+nbproject/private/
+build/
+nbbuild/
+# dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+################
+
+### Linux ###
+.*
+!.gitignore
+!.gitattributes
+!.travis.yml
+!.bowerrc
+*~
+#############
+
+### Log files ###
+*.log
+
+.DS_store
+.classpath
+.settings
+.project
+.tomcatplugin
+*.map
+*.appcache
+*.zip
+*.class
+coffee/node_modules
+coffee/test/mocha-phantomjs/test.js
+
+bin
+.idea/
+*.iml
+target
+src/main/java/com/pajatman/atool/xml/schema
+src/main/webapp/js/vendor
+src/main/webapp/atool/js/vendor
+node_modules
+
+atool.appcache
+*.appcache
+
+node_modules/
+server/a2/src/com/pajatman/atool/xml/schema
+
+# Ignore the sphinx manual build directory
+manual/build/
+
+*.hot-update.json
+*.hot-update.js
