@@ -24,7 +24,10 @@ export default class MainPageComponent extends Component {
       const win = getWinner(game['playerA'], game['playerB'])
       return (
         <div key={index}>
-          Game {index} - Player A Wins : {win ? 'true' : 'false' } Correct - { `${game['playerAWins']}`}
+          <p>Game {index} - Player A Wins : {win ? 'true' : 'false' }
+            <span className={`${win == game['playerAWins'] ? 'win' : 'loss'}`}>Correct - { `${game['playerAWins']}`}</span>
+          </p>
+          <p>{ JSON.stringify(game) }</p>
         </div>
       )
     })

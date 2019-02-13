@@ -52,6 +52,51 @@ export const getSingleCardHighestValue = (deck) => {
     if(value > highest) {
       highest = value
       highestCard = card;
+    } else if(value == highest) {
+      if (value == 10) {
+        const v1 = getHighest10(card);
+        const v2 = getHighest10(highestCard);
+        if (v1 > v2) {
+          highest = value
+          highestCard = card;
+        }
+      }
+    }
+  });
+  return highestCard;
+}
+
+/*
+  This function return the highest card from the deck.
+  It caters for the scenario whereby the highest value might be the same and the only difference is the suite.
+*/
+export const getSingleCardHighestSuiteValue = (deck) => {
+  let highest = 0;
+  let highestCard = '';
+  forEach(deck, (card) => {
+    const value = getCardValue(card)
+    if(value > highest) {
+      highest = value
+      highestCard = card;
+    } else if(value == highest) {
+      let found = false;
+      if (value == 10) {
+        const v1 = getHighest10(card);
+        const v2 = getHighest10(highestCard);
+        if (v1 > v2) {
+          highest = value
+          highestCard = card;
+          found = true;
+        }
+      }
+      if (!found) {
+        const sv1 = getSuiteValue(card);
+        const sv2 = getSuiteValue(highestCard);
+        if (sv1 > sv2) {
+          highest = value;
+          highestCard = card;
+        }
+      }
     }
   });
   return highestCard;
@@ -136,14 +181,16 @@ export const getWinner = (deckA, deckB) => {
       } else if(valueA === 10 && valueB === 10) {
         const highest10A = getHighest10(highestA);
         const highest10B = getHighest10(highestB);
-        check = false;
-        return highest10A > highest10B ? true : false
+        if(highest10A != highest10B) { // we have a winner
+          check = false;
+          return highest10A > highest10B ? true : false
+        }
       }
     }
   }
 
-  highestA = getSingleCardHighestValue(deckA)
-  highestB = getSingleCardHighestValue(deckB)
+  highestA = getSingleCardHighestSuiteValue(deckA)
+  highestB = getSingleCardHighestSuiteValue(deckB)
 
   const suiteA = getSuiteValue(highestA);
   const suiteB = getSuiteValue(highestB);
